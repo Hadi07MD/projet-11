@@ -12,7 +12,7 @@ class GestionProduit {
 
     private function getConnection(){
       
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'site-e-commerce');
+        $this->Connection = mysqli_connect( 'localhost','Hadi','HADI1998', 'site-e-commerce');
            
          
        

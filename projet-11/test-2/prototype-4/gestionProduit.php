@@ -1,9 +1,5 @@
 <?php
 include "produit.php";
-
-
-
-
 class GestionProduit {
 
     public $name ;
@@ -13,25 +9,14 @@ class GestionProduit {
     private function getConnection(){
       
         $this->Connection = mysqli_connect( 'localhost','Hadi','HADI1998', 'site-e-commerce');
-           
-           
-         
-       
-        
+              
         return $this->Connection;
     }
-
-
-  
-    
-    
-    
     // pour ajouter session
     public function set($key,$value){
         $_SESSION["paniers"]["produits"][$key] = $value ;
 
     }
-
       // afficher session
 
       public function getPanier(){
@@ -39,26 +24,7 @@ class GestionProduit {
             return $_SESSION["paniers"]["produits"];
             return array();
         }
-
-      }
-
-          //supprimer session
-    public function delete($id){
-        if(isset($_SESSION["paniers"]["produits"][$id])){
-            unset($_SESSION["paniers"]["produits"][$id]);
-        }
     }
-
-    
-    // pour afficher  session 
-    public function getProduit($id){
-        if(isset($_SESSION["paniers"]["produits"][$id])){
-            return $_SESSION["paniers"]["produits"][$id];
-            return null ; 
-        }
-    }
-
-  
 
 // afficher  les produits : page index
     public function afficher(){
@@ -71,15 +37,14 @@ class GestionProduit {
             $produit = new Produit();
             $produit->setId($value_Data['id']);
             $produit->setNom($value_Data['Nom']);
+            $produit->setPrix($value_Data['Prix']);
            
             array_push($TableData, $produit);
         }
           return $TableData;
  
         }
-  
- 
-        
+       
 // afficher  les produits : page panier
 
         public function afficherProduit($id){

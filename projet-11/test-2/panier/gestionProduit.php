@@ -12,8 +12,7 @@ class GestionProduit {
 
     private function getConnection(){
       
-        $this->Connection = mysqli_connect( 'localhost','Hadi','HADI1998', 'site-e-commerce');
-           
+            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'site-e-commerce');
            
          
        
@@ -39,26 +38,7 @@ class GestionProduit {
             return $_SESSION["paniers"]["produits"];
             return array();
         }
-
-      }
-
-          //supprimer session
-    public function delete($id){
-        if(isset($_SESSION["paniers"]["produits"][$id])){
-            unset($_SESSION["paniers"]["produits"][$id]);
-        }
     }
-
-    
-    // pour afficher  session 
-    public function getProduit($id){
-        if(isset($_SESSION["paniers"]["produits"][$id])){
-            return $_SESSION["paniers"]["produits"][$id];
-            return null ; 
-        }
-    }
-
-  
 
 // afficher  les produits : page index
     public function afficher(){
@@ -71,6 +51,7 @@ class GestionProduit {
             $produit = new Produit();
             $produit->setId($value_Data['id']);
             $produit->setNom($value_Data['Nom']);
+            $produit->setPrix($value_Data['Prix']);
            
             array_push($TableData, $produit);
         }

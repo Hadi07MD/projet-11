@@ -39,8 +39,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `Nom`, `password`, `email`) VALUES
-(1, 'hicham', '1234', 'hicham@gmail.com'),
-(2, 'nada', 'nada123', 'nada@gmail.com');
+(1, 'Hadi', '1234', 'Hadi@gmail.com');
+
 
 --
 -- Index pour les tables déchargées
