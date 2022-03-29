@@ -6,8 +6,8 @@ $liste_persons = [];
 
  // Saisie des données
  $person = new Person;
- $person->setNom("El Mliki");
- $person->setPrenom("Hicham");
+ $person->setNom("Hadi");
+ $person->setPrenom("Mohammed");
  $liste_persons[] = $person ;
 
 

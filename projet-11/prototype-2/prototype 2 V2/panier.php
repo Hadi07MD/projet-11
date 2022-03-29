@@ -23,8 +23,10 @@ $listProduits = $gestionProduit->getPanier();
              </tr>
       
         <?php
+           $total = 0;
           foreach($listProduits as $value){
-          
+
+          $total = $total + $value["qnt"];
 
             ?>
           
@@ -45,7 +47,7 @@ $listProduits = $gestionProduit->getPanier();
             
              
         <?php } ?>
-
+       <td>Total de quantité:  <?= $total ?></td>
 
      </table>
 

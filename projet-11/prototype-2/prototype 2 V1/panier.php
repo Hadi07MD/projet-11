@@ -22,7 +22,9 @@ $listProduits = $gestionProduit->getPanier();
              </tr>
       
         <?php
+           $total = 0;
           foreach($listProduits as $value){
+            $total = $total + $value["qnt"];
           
 
             ?>
@@ -33,12 +35,18 @@ $listProduits = $gestionProduit->getPanier();
                 <td><?= $value["nom"] ?></td>
                 <td><?= $value["prix"] ?> dh</td>
                 <td><?= $value["qnt"] ?></td>
-            
+                <td>
+                  <a href="modifier.php?id=<?= $value["id"] ?>">modifier</a>
+                  <a href="supprimer.php?id=<?= $value["id"] ?>">supprimer</a>
+                 </td>
+
               
             </tr> 
             
              
         <?php } ?>
+        
+        <td>Total de quantité:  <?= $total ?></td>
 
 
      </table>

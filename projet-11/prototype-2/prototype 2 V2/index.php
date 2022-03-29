@@ -1,5 +1,7 @@
 
 <?php 
+session_start();
+
 include 'gestionProduit.php';
 $gestionProduit = new GestionProduit();
 $data= $gestionProduit->afficher();
@@ -28,3 +30,12 @@ foreach($data as $value){
 <?php } ?>
 
 <a href="panier.php">panier</a>
+<?php
+           $total = 0;
+          foreach($listProduits as $value){
+          $total = $total + $value["qnt"];
+
+?>
+  <?php } ?>
+
+   <td><?= $total ?></td>
