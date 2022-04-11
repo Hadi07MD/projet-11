@@ -7,6 +7,10 @@ technologies used in this project:
 - Bootstrap
 - PHP/Mysql
 
+Installation:
+- create database in phpmyadmin (make sure it's the same name in /admin/connect.php)
+- import tables in phpmyadmin from /database/ecommrce_db.sql
+
 features:
 - CRUD products
 - CRUD Categories/ Child Categories

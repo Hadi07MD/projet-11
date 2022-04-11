@@ -1,6 +1,6 @@
 <?php
 
-	$dsn = 'mysql:host=localhost;dbname=ecommrce_db';
+	$dsn = 'mysql:host=localhost;dbname=datacommrce';
 	$user = 'root';
 	$pass = '';
 	$option = array(
