@@ -9,7 +9,7 @@ technologies used in this project:
 
 Installation:
 - create database in phpmyadmin (make sure it's the same name in /admin/connect.php)
-- import tables in phpmyadmin from /database/ecommrce_db.sql
+- import tables in phpmyadmin from /database/datacommrce.sql
 
 features:
 - CRUD products
