@@ -22,7 +22,25 @@
 
 	$cats = $stmt2->fetchAll(); 
 
-	
+	if (isset($_GET['do']))
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			
+			$user_id = $_SESSION['uid'];
+			$item_id = $_POST['item_id'];
+			echo "<script>alert(" . $item_id .")</script>";
+			$stmt = $con->prepare("INSERT INTO basket(item_id, user_id) 
+			VALUES (:zitem_id, :zuser_id)");
+
+			$stmt->execute([
+				":zitem_id" => $item_id,
+				":zuser_id" => $user_id,
+			]);
+			header("Location: " . $_SERVER['PHP_SELF']);
+			exit();
+		}
+	}
+
 ?>
 
 <br><br><br>
@@ -65,12 +83,24 @@
 
 	<div class="row">
 	<div class="product">
+			
+
 		<?php 
 			$allItems = getAllFrom('*','items', 'where Approve = 1', '', 'Item_ID');
+			
 			foreach ($allItems as $item) {
 				echo '<div class="col-sm-6 col-md-4">';
 					echo '<div class="thumbnail item-box">';
 						echo '<span class="price-tag">' . $item['Price'] . 'DH</span>';
+						if(isset($_SESSION['user'])) {
+						echo '
+						<form id="basket-form' . $item['Item_ID'] .'" action="?do=add_basket" method="POST">
+							<input type="hidden" name="item_id" value="' . $item['Item_ID']  . '"  />
+							<input type="hidden" name="user_id" value="' . $_SESSION['uid']  . '"  />
+						</form>
+						<span class="basket-tag" onclick="document.getElementById(`basket-form'.$item['Item_ID'].'`).submit();"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+						';
+						}
 						if (empty($item['avatar'])) {
 							echo "No Image";
 						} else {
@@ -98,14 +128,6 @@
 </div>
 </div>
 </div>
-
-<!-- <ul id="sideManu" class="nav nav-tabs nav-stacked">
-	<li class="subMenu open"><a> ELECTRONICS [230]</a>
-		<ul>
-			<li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Cameras (100) </a></li>
-		</ul>
-	</li>
-</ul> -->
 
 <?php
 	include $tpl . 'footer.php'; 

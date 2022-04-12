@@ -37,11 +37,16 @@
                 <?php echo $sessionUser ?>
                 <sapn class="caret"></sapn>
               </span>
-              <ul class="dropdown-menu">
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="newad.php">New Product</a></li>
-                <li><a href="logout.php">Logout</a></li>
-              </ul>
+                <ul class="basket_btn_c">
+                  <a class="icon_c" href="basket.php">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                  </a>
+                </ul>
+                <ul class="dropdown-menu">
+                  <li><a href="profile.php">Profile</a></li>
+                  <li><a href="newad.php">New Product</a></li>
+                  <li><a href="logout.php">Logout</a></li>
+                </ul>
             </div> 
           </div>
 
@@ -50,9 +55,14 @@
           } else {
       ?>
       <br>
-      <a href="login.php" style="color: #ccc;">
+      <div class="main_nav_c">
+        <a href="login.php" style="color: #ccc;">
           <span class="pull-right"><b>Login | Signup</b></span>
-      </a>
+        </a>
+        <a class="icon_c">
+         <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        </a>
+      </div>
       <?php } ?>
       </ul>
     </div>  
